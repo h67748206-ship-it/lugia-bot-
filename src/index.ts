@@ -39,3 +39,9 @@ createServer((_req, res) => {
 });
 
 const PREFIX = '!';
+// Auto-ping pour forcer Render à rester éveillé
+setInterval(() => {
+  fetch('https://lugia-bot.onrender.com')
+    .then(() => console.log('Auto-ping réussi !'))
+    .catch((err: any) => console.error('Erreur auto-ping :', err.message));
+}, 10 * 60 * 1000); // S'exécute toutes les 10 minutes
